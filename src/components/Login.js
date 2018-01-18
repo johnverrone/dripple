@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View, Button } from 'react-native';
-import { LoginButton } from 'react-native-fbsdk';
 import firebase, { auth, provider } from '../config/firebase';
 
 export default class Login extends Component {
@@ -26,7 +25,6 @@ export default class Login extends Component {
           />
         </View>
         <View style={styles.titleContainer}>
-          <LoginButton />
         </View>
       </View>
     );
