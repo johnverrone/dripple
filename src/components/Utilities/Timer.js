@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Text, StyleSheet, View, TextInput } from 'react-native';
-import TextFixedWidth from './TextFixedWidth';
+import TextFixedWidth from '../TextFixedWidth';
 
 export default class Timer extends Component {
   constructor(props) {

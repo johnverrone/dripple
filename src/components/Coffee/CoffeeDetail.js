@@ -7,7 +7,7 @@ export default props => {
   return (
     <ScrollView style={styles.background}>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={require('../assets/icon-512.png')} />
+        <Image style={styles.image} source={require('../../assets/icon-512.png')} />
       </View>
       <Text style={styles.name}>{name}</Text>
       <Text style={styles.roaster}>{roaster}</Text>

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Button, Image } from 'react-native';
 import { NavigationActions, TabNavigator, StackNavigator } from 'react-navigation';
+import { Icon } from 'react-native-elements';
 import CoffeeList from '../containers/CoffeeList';
-import CoffeeDetail from '../components/CoffeeDetail';
+import CoffeeDetail from '../components/Coffee/CoffeeDetail';
 import RecipeList from '../containers/RecipeList';
-import NewCoffee from '../components/NewCoffee';
-import Timer from '../components/Timer';
+import NewCoffee from '../components/Coffee/NewCoffee';
+import Timer from '../components/Utilities/Timer';
 
-const resetAction = NavigationActions.reset({
+export const resetCoffeeStack = NavigationActions.reset({
   index: 0,
   actions: [NavigationActions.navigate({ routeName: 'Coffees' })],
 });
@@ -32,7 +33,6 @@ export const CoffeeStack = StackNavigator({
     screen: NewCoffee,
     navigationOptions: ({navigation}) => ({
       title: 'New Coffee',
-      headerRight: <Button title="Done" onPress={() => navigation.dispatch(resetAction)}/>
     })
   }
 });
@@ -41,7 +41,8 @@ export const RecipeStack = StackNavigator({
   Recipes: {
     screen: RecipeList,
     navigationOptions: {
-      title: 'Recipes'
+      title: 'Recipes',
+      
     }
   }
 });
@@ -50,13 +51,22 @@ export const Tabs = TabNavigator({
   Coffees: {
     screen: CoffeeStack,
     navigationOptions: {
-      tabBarLabel: 'Coffees'
+      tabBarLabel: 'Coffees',
+      tabBarIcon: ({tintColor}) => <Icon name='coffee' type='font-awesome' color={tintColor} />
     }
   },
   Recipes: {
-    screen: RecipeStack
+    screen: RecipeStack,
+    navigationOptions: {
+      tabBarLabel: 'Recipes',
+      tabBarIcon: ({tintColor}) => <Icon name='book' type='font-awesome' color={tintColor} />
+    }
   },
   Timer: {
-    screen: Timer
+    screen: Timer,
+    navigationOptions: {
+      tabBarLabel: 'Tools',
+      tabBarIcon: ({tintColor}) => <Icon name='tools' type='entypo' color={tintColor} />
+    }
   }
 });
