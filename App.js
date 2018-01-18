@@ -1,10 +1,10 @@
 import React from 'react';
 import { Tabs } from './src/config/router';
+import Login from './src/components/Login';
 
 export default class App extends React.Component {
   render() {
-    return (
-      <Tabs />
-    );
+    let auth = false;
+    return auth ? <Tabs /> : <Login />;
   }
 }
