@@ -1,16 +1,20 @@
 import React from 'react';
 import { Button, Image } from 'react-native';
-import { NavigationActions, TabNavigator, StackNavigator } from 'react-navigation';
+import {
+  NavigationActions,
+  TabNavigator,
+  StackNavigator
+} from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import CoffeeList from '../containers/CoffeeList';
 import CoffeeDetail from '../components/Coffee/CoffeeDetail';
 import RecipeList from '../containers/RecipeList';
 import NewCoffee from '../components/Coffee/NewCoffee';
-import Timer from '../components/Utilities/Timer';
+import ToolsContainer from '../containers/ToolsContainer';
 
 export const resetCoffeeStack = NavigationActions.reset({
   index: 0,
-  actions: [NavigationActions.navigate({ routeName: 'Coffees' })],
+  actions: [NavigationActions.navigate({ routeName: 'Coffees' })]
 });
 
 export const CoffeeStack = StackNavigator({
@@ -31,8 +35,8 @@ export const CoffeeStack = StackNavigator({
   },
   NewCoffee: {
     screen: NewCoffee,
-    navigationOptions: ({navigation}) => ({
-      title: 'New Coffee',
+    navigationOptions: ({ navigation }) => ({
+      title: 'New Coffee'
     })
   }
 });
@@ -41,8 +45,7 @@ export const RecipeStack = StackNavigator({
   Recipes: {
     screen: RecipeList,
     navigationOptions: {
-      title: 'Recipes',
-      
+      title: 'Recipes'
     }
   }
 });
@@ -52,21 +55,27 @@ export const Tabs = TabNavigator({
     screen: CoffeeStack,
     navigationOptions: {
       tabBarLabel: 'Coffees',
-      tabBarIcon: ({tintColor}) => <Icon name='coffee' type='font-awesome' color={tintColor} />
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="coffee" type="font-awesome" color={tintColor} />
+      )
     }
   },
   Recipes: {
     screen: RecipeStack,
     navigationOptions: {
       tabBarLabel: 'Recipes',
-      tabBarIcon: ({tintColor}) => <Icon name='book' type='font-awesome' color={tintColor} />
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="book" type="font-awesome" color={tintColor} />
+      )
     }
   },
   Timer: {
-    screen: Timer,
+    screen: ToolsContainer,
     navigationOptions: {
       tabBarLabel: 'Tools',
-      tabBarIcon: ({tintColor}) => <Icon name='tools' type='entypo' color={tintColor} />
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="tools" type="entypo" color={tintColor} />
+      )
     }
   }
 });

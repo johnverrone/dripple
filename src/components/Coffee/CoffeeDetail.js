@@ -7,7 +7,10 @@ export default props => {
   return (
     <ScrollView style={styles.background}>
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={require('../../assets/icon-512.png')} />
+        <Image
+          style={styles.image}
+          source={require('../../assets/icon-512.png')}
+        />
       </View>
       <Text style={styles.name}>{name}</Text>
       <Text style={styles.roaster}>{roaster}</Text>
@@ -18,7 +21,7 @@ export default props => {
 
 const styles = StyleSheet.create({
   background: {
-    flex: 1, 
+    flex: 1,
     backgroundColor: '#fff'
   },
   description: {
@@ -27,7 +30,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    resizeMode: 'contain',
+    resizeMode: 'contain'
   },
   imageContainer: {
     width: '100%',
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     paddingTop: 20,
     paddingLeft: 20,
-    paddingRight: 20,
+    paddingRight: 20
   },
   roaster: {
     paddingLeft: 20,

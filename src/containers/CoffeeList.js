@@ -3,18 +3,17 @@ import { FlatList, Text, StyleSheet, View } from 'react-native';
 import firebase from '../config/firebase';
 
 export default class CoffeeList extends Component {
-
   constructor() {
     super();
     this.state = {
       coffees: []
-    }
+    };
   }
 
   componentDidMount() {
-    const coffeeDb = firebase.database().ref('coffees')
-    coffeeDb.on('value', (snapshot) => {
-      let coffees = snapshot.val()
+    const coffeeDb = firebase.database().ref('coffees');
+    coffeeDb.on('value', snapshot => {
+      let coffees = snapshot.val();
       let newState = [];
       for (let coffee in coffees) {
         newState.push({
@@ -22,12 +21,12 @@ export default class CoffeeList extends Component {
           name: coffees[coffee].name,
           roaster: coffees[coffee].roaster,
           description: coffees[coffee].description
-        })
+        });
       }
       this.setState({
         coffees: newState
-      })
-    })
+      });
+    });
   }
 
   onViewDetail(item) {

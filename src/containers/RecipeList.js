@@ -10,6 +10,7 @@ export default class RecipeList extends Component {
   render() {
     return (
       <SectionList
+        style={styles.background}
         sections={[
           {
             title: 'Chemex',
@@ -35,6 +36,10 @@ export default class RecipeList extends Component {
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    backgroundColor: '#fff'
+  },
   item: {
     paddingLeft: 10,
     paddingRight: 10,

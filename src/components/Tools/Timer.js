@@ -10,18 +10,20 @@ export default class Timer extends Component {
   }
 
   formatElapsed(ms) {
-    return Math.floor(ms / 60 / 100) + ':' + ('0' + Math.floor(ms / 10)).slice(-2);
+    return (
+      Math.floor(ms / 60 / 100) + ':' + ('0' + Math.floor(ms / 10)).slice(-2)
+    );
   }
 
   startTimer() {
     let startTime = new Date().getTime();
 
     this.incrementer = setInterval(() => {
-        elapsed = (new Date().getTime() - startTime) / 100;
-        this.setState({
-          elapsed: elapsed
-        })
-      }, 100);
+      elapsed = (new Date().getTime() - startTime) / 100;
+      this.setState({
+        elapsed: elapsed
+      });
+    }, 100);
   }
 
   stopTimer() {
@@ -30,7 +32,7 @@ export default class Timer extends Component {
 
   resetTimer() {
     this.stopTimer();
-    this.setState({elapsed: 0});
+    this.setState({ elapsed: 0 });
   }
 
   render() {
@@ -39,9 +41,11 @@ export default class Timer extends Component {
         <TextFixedWidth style={styles.timer}>
           {this.formatElapsed(this.state.elapsed)}
         </TextFixedWidth>
-        <Button title="Start" onPress={() => this.startTimer()} />
-        <Button title="Stop" onPress={() => this.stopTimer()} />
-        <Button title="Reset" onPress={() => this.resetTimer()} />
+        <View style={styles.buttonRow}>
+          <Button title="Start" onPress={() => this.startTimer()} />
+          <Button title="Stop" onPress={() => this.stopTimer()} />
+          <Button title="Reset" onPress={() => this.resetTimer()} />
+        </View>
       </View>
     );
   }
@@ -50,8 +54,13 @@ export default class Timer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   },
   timer: {
     fontSize: 96,
