@@ -31,7 +31,8 @@ export default class WeightCalculator extends Component {
             onPress={() => this.increaseWeight()}
           />
           <TextFixedWidth style={styles.weight}>
-            {format('.1f')(this.state.weight)}<Text style={styles.small}>g</Text>
+            {format('.1f')(this.state.weight)}
+            <Text style={styles.small}>g</Text>
           </TextFixedWidth>
           <Icon
             name="angle-down"
@@ -43,15 +44,18 @@ export default class WeightCalculator extends Component {
         <View style={styles.weightButtons}>
           <Text style={[styles.weight, styles.result]}>
             <Text style={styles.small}>x15 </Text>
-            {format('.1f')(this.state.weight * 15)}<Text style={styles.small}>g</Text>
+            {format('.1f')(this.state.weight * 15)}
+            <Text style={styles.small}>g</Text>
           </Text>
           <Text style={[styles.weight, styles.result]}>
             <Text style={styles.small}>x16 </Text>
-            {format('.1f')(this.state.weight * 16)}<Text style={styles.small}>g</Text>
+            {format('.1f')(this.state.weight * 16)}
+            <Text style={styles.small}>g</Text>
           </Text>
           <Text style={[styles.weight, styles.result]}>
             <Text style={styles.small}>x17 </Text>
-            {format('.1f')(this.state.weight * 17)}<Text style={styles.small}>g</Text>
+            {format('.1f')(this.state.weight * 17)}
+            <Text style={styles.small}>g</Text>
           </Text>
         </View>
       </View>

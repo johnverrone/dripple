@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View, Button } from 'react-native';
 import firebase, { auth, provider } from '../config/firebase';
+import { AccessToken, LoginButton } from 'react-native-fbsdk';
 
 export default class Login extends Component {
-
-  async logIn() {
-    
-  }
+  onLogin = (error, result) => {
+    if (error) {
+      alert('Login failed with error: ' + result.error);
+    } else if (result.isCancelled) {
+      alert('Login was cancelled');
+    } else {
+      AccessToken.getCurrentAccessToken().then(data =>
+        this.props.onSuccess(data.accessToken.toString())
+      );
+    }
+  };
 
   render() {
     return (
@@ -18,7 +26,9 @@ export default class Login extends Component {
           />
         </View>
         <View style={styles.titleContainer}>
-          <Button title='Login' onPress={() => this.logIn()} />
+          <LoginButton
+            onLoginFinished={this.onLogin}
+          />
         </View>
       </View>
     );
