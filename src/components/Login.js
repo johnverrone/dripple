@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View, Button } from 'react-native';
 import firebase, { auth, provider } from '../config/firebase';
-import { Facebook } from 'expo';
 
 export default class Login extends Component {
 
   async logIn() {
-    const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('284036555414767', {
-        permissions: ['public_profile'],
-      });
-    if (type === 'success') {
-      // Get the user's name using Facebook's Graph API
-      const response = await fetch(
-        `https://graph.facebook.com/me?access_token=${token}`);
-      this.props.onSuccess();
-    }
+    
   }
 
   render() {
