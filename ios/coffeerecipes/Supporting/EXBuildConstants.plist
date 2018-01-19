@@ -5,6 +5,6 @@
 	<key>EXPO_RUNTIME_VERSION</key>
 	<string>2.1.4</string>
 	<key>developmentUrl</key>
-	<string>exp14ecf6de30d84bb3bf831e9b0a15887a://4e-awv.johnverrone.coffeerecipes.exp.direct:80</string>
+	<string>exp14ecf6de30d84bb3bf831e9b0a15887a://localhost:80</string>
 </dict>
 </plist>
