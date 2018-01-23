@@ -5,6 +5,7 @@ import {
   TabNavigator,
   StackNavigator
 } from 'react-navigation';
+import { LoginManager } from 'react-native-fbsdk';
 import { Icon } from 'react-native-elements';
 import CoffeeList from '../containers/CoffeeList';
 import CoffeeDetail from '../components/Coffee/CoffeeDetail';
@@ -17,6 +18,11 @@ export const resetCoffeeStack = NavigationActions.reset({
   actions: [NavigationActions.navigate({ routeName: 'Coffees' })]
 });
 
+logOut = () => {
+  LoginManager.logOut();
+  //TODO: navigate to Login screen
+}
+
 export const CoffeeStack = StackNavigator({
   Coffees: {
     screen: CoffeeList,
@@ -24,6 +30,9 @@ export const CoffeeStack = StackNavigator({
       title: 'Coffees',
       headerRight: (
         <Button title="New" onPress={() => navigation.navigate('NewCoffee')} />
+      ),
+      headerLeft: (
+        <Button title="Logout" onPress={() => logOut()} />
       )
     })
   },
